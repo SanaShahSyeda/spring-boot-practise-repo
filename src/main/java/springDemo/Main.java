@@ -29,8 +29,8 @@ public class Main {
     @GetMapping("/greet")
     public greetResponse greet() {
         greetResponse response = new greetResponse("Hello",
-                List.of("Java", "HTML", "CSS", "JavaScript"),
-                new Person("Johnson", 30, 40000));
+                List.of("Java", "HTML", "CSS", "JavaScript", "Spring"),
+                new Person("John", 30, 40000));
         return response;
     }
 
