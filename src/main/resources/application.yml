@@ -12,7 +12,7 @@ spring:
     properties:
       hibernate:
         dialect: org.hibernate.dialect.PostgreSQLDialect
-        format_sql: true
+        formatSql: true
     show_sql: true
   main:
      web-application-type: servlet   
