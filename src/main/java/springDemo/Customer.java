@@ -1,7 +1,18 @@
 package springDemo;
+
 import java.util.Objects;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.SequenceGenerator;
+
+@Entity
 public class Customer {
+    @Id
+    @SequenceGenerator(name = "customer_id_sequence", sequenceName = "customer_id_sequence")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "customer_id_sequence")
     private Integer id;
     private Integer age;
     private String name;
@@ -74,7 +85,8 @@ public class Customer {
             return false;
         }
         Customer customer = (Customer) o;
-        return Objects.equals(id, customer.id) && Objects.equals(age, customer.age) && Objects.equals(name, customer.name) && Objects.equals(email, customer.email);
+        return Objects.equals(id, customer.id) && Objects.equals(age, customer.age)
+                && Objects.equals(name, customer.name) && Objects.equals(email, customer.email);
     }
 
     @Override
@@ -85,11 +97,11 @@ public class Customer {
     @Override
     public String toString() {
         return "{" +
-            " id='" + getId() + "'" +
-            ", age='" + getAge() + "'" +
-            ", name='" + getName() + "'" +
-            ", email='" + getEmail() + "'" +
-            "}";
+                " id='" + getId() + "'" +
+                ", age='" + getAge() + "'" +
+                ", name='" + getName() + "'" +
+                ", email='" + getEmail() + "'" +
+                "}";
     }
 
-    }
+}

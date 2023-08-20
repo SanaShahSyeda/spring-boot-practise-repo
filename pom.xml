@@ -17,6 +17,13 @@
 		<java.version>17</java.version>
 	</properties>
 	<dependencies>
+
+		<dependency>
+			<groupId>org.apache.wicket</groupId>
+			<artifactId>wicket-native-websocket-tomcat</artifactId>
+			<version>8.0.0-M3</version>
+		</dependency>
+
 	    <dependency>
 			<groupId>org.postgresql</groupId>
 			<artifactId>postgresql</artifactId>
