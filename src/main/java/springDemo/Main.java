@@ -2,7 +2,9 @@ package springDemo;
 
 import java.util.List;
 import org.springframework.boot.SpringApplication;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -65,10 +67,15 @@ public class Main {
 
     @PostMapping
     public void addCustomer(@RequestBody NewCustomerRequest request) {
-        Customer customer = new Customer(null, null, null, null);
-        customer.setName(request.name);
-        customer.setEmail(request.email);
-        customer.setAge(request.age);
-        customerRepository.save(null);
+        Customer customer = new Customer();
+        customer.setName(request.name());
+        customer.setEmail(request.email());
+        customer.setAge(request.age());
+        customerRepository.save(customer);
+    }
+
+    @DeleteMapping("{customerId}")
+    public void deleteCustomer(@PathVariable("customerId") Integer id) {
+        customerRepository.deleteById(id);
     }
 }
